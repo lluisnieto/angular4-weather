@@ -16,6 +16,14 @@ h2 {
     padding:15px;
 }
 
+table {
+    width:100%;
+}
+
+table th, table td {
+    padding:4px;
+}
+
 .loading-animation {
     font-family: 'Arial';
     display:block;

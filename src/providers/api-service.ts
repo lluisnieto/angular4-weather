@@ -57,7 +57,6 @@ export class ApiService {
                                 cities.push(this.newCityObj);
                             }
                         );
-                        console.log(cities);
                         this.convertKelvinToCelcius(cities);
 
                         resolve(cities);

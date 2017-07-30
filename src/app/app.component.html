@@ -7,6 +7,22 @@
         </div>
     </div>
 
-    <h2>Temperature records</h2>
+    <h2>Temperature records:</h2>
+    <table class="table-striped">
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Temperature</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let record of allRecords">
+                <td>{{ record.name }}</td>
+                <td>{{ record.temperature }} ºC</td>
+                <td>{{ record.timestamp }}</td>
+            </tr>
+        </tbody>
+    </table>
 
 </div>
