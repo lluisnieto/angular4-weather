@@ -1,3 +1,36 @@
+
 h1 {
+    font-size:28px;
     padding: 10px 0;
+}
+
+h2 {
+    font-size:22px;
+}
+
+.alert:last-child {
+    margin-bottom: 0;
+}
+
+.jumbotron {
+    padding:15px;
+}
+
+.loading-animation {
+    font-family: 'Arial';
+    display:block;
+    width:80px;
+    height:80px;
+    font-size:80px;
+    line-height:118px;
+    text-align: center;
+    margin:0 auto;
+    color:#666;
+
+    animation: spin 0.5s infinite linear;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(359deg);}
 }

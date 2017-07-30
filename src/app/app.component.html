@@ -1,4 +1,12 @@
 <div class="container col-sm-9">
-    <h1>Temperatures in 4 cities</h1>
-    <div class="alert alert-info" role="alert" *ngFor="let city of this.ngRedux.getState().cities">{{ city.name }}: {{ city.temperature }}</div>
+    <h1>Current ºF temperatures:</h1>
+    <div class="jumbotron">
+        <span *ngIf="this.ngRedux.getState().cities.length == 0" class="loading-animation">*</span>
+        <div *ngIf="this.ngRedux.getState().cities.length > 0">
+            <div class="alert alert-warning" role="alert" *ngFor="let city of this.ngRedux.getState().cities">{{ city.name }}: {{ city.temperature }}</div>
+        </div>
+    </div>
+
+    <h2>Temperature records</h2>
+
 </div>
