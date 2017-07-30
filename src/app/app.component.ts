@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ApiService } from '../providers/api-service';
-import { CityTemp } from "../models/citytemp-service";
+import { CityTemp } from "../models/citytemp-model";
 
 
 @Component({
@@ -14,7 +14,6 @@ export class AppComponent {
 
     cities: CityTemp[] = [];
     cityNames: string[] = [];
-    newCityObj: CityTemp;
 
     constructor(
         public apiService: ApiService,
@@ -26,18 +25,18 @@ export class AppComponent {
             'Lima',
             'Sao Paulo'
         ];
+    }
 
-        this.cityNames.forEach(
-            (item) => {
-                this.apiService.getTempFromCityName(item).then(
-                    (res) => {
-                        this.newCityObj = new CityTemp;
-                        this.newCityObj.name = item;
-                        this.newCityObj.temperature = res;
-                        this.cities.push(this.newCityObj);
+    ngOnInit() {
+        setInterval(
+            () => {
+                this.apiService.getTemperatureFromMultipleCites(this.cityNames).then(
+                    (val) => {
+                        this.cities = val;
                     }
                 );
-            }
-        )
+            },
+            2000
+        );
     }
 }
