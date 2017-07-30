@@ -23,4 +23,8 @@ export class FirebaseService {
     getTemperatureRecords(): any {
         return this.allRecords$;
     }
+
+    deleteTemperatureRecords(): void {
+        this.af.database.object('/temperatureRecords').remove();
+    }
 }

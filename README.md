@@ -1,31 +1,46 @@
-# Angular4Weather
+# Altran Test Angular 2
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.25.5.
+Crear una aplicación en Angular v 2 que permita consumir la API de
+http://openweathermap.org/api
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## La aplicación debe cumplir los siguientes requisitos:
 
-## Code scaffolding
+- El proyecto debe estar en Angular 2
+- El proyecto debe estar con git en github.com en un repositorio público
+- Se debe crear un componente de Angular que consuma la API OpenWeatherMap y
+debe renderizar la temperatura de las siguientes ciudades:
+i. Santiago
+ii. Buenos Aires
+iii. Lima
+iv. Sao Pablo
+- El componente debe almacenar dichas temperaturas en Store
+- El componente debe refrescar las temperaturas de las ciudades y actualizarlas en
+Store cada 3 min.
+- Se debe mantener un historial de las temperaturas
+- Las vistas debe tener un mínimo de diseño y usabilidad (Bootstrap, Foundation, ...)
+Casos de uso
+- El componente debe obtener la información de la api de OpenWheaterMap.
+- Las temperaturas se debe refrescar cada 3 min. y actualizar en la Store.
+Subir el código a un repositorio público (github preferiblemente) y pasarnos la URL
+para examinarlo.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+## Angular CLI
 
-## Build
+Obligatorio tener dependencia global angular-cli para poder compliar
+$ npm install -g @angular/cli@latest
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Servidor de desarrollo
 
-## Running unit tests
+Ejecuta `npm start` para un servidor dev. Ir a `http://localhost:4200/`. La app se recagará automáticamente al cambiar archivos de código.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Más ayuda
 
-## Running end-to-end tests
+Para conseguir más ayuda de 'angular-cli' ejecuta 'ng help' o ir a la página [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+## Vista previa
 
-## Deploying to GitHub Pages
+http://www.motocross.es/temp/ng2-weather/
 
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
+## Contacto
 
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Lluis Nieto Soler -> anconetano@gmail.com

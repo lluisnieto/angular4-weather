@@ -24,6 +24,11 @@ table th, table td {
     padding:4px;
 }
 
+.btn-delete {
+    float:right;
+    font-size:16px;
+}
+
 .loading-animation {
     font-family: 'Arial';
     display:block;

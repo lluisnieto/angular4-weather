@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
-import { FirebaseListObservable, AngularFire } from "angularfire2";
 
 import { ApiService } from '../providers/api-service';
 import { FirebaseService } from '../providers/firebase-service';
@@ -35,7 +34,6 @@ export class AppComponent {
     }
 
     ngOnInit() {
-        this.temperatureLoad();
         this.startTemperatureLoadPolling(180000); // 3 min
         this.printTemperatureRecords();
     }
@@ -67,7 +65,7 @@ export class AppComponent {
         );
     }
 
-    printTemperatureRecords() {
+    printTemperatureRecords(): void {
         this.firebaseService.allRecords$.subscribe(
             (value) => {
                 this.allRecords = value;
@@ -76,5 +74,10 @@ export class AppComponent {
                 console.log(err);
             }
         );
+    }
+
+    convertTimestampToDate(timestamp): string {
+        let date = new Date(timestamp*1000);
+        return date.getDate()  + "-" + (date.getMonth()+1) + "-" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes();
     }
 }
