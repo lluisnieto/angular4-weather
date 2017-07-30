@@ -39,7 +39,7 @@ export class AppComponent {
                     }
                 );
             },
-            2000
+            180000
         );
     }
 }

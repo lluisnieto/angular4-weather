@@ -35,7 +35,7 @@ export class ApiService {
         );
     }
 
-    getTemperatureFromMultipleCites(cityNames: string[]): Promise<any> {
+    getTemperatureFromMultipleCites(cityNames: string[]): Promise<CityTemp[]> {
         let cities = [];
         let promises = [];
 
@@ -57,6 +57,8 @@ export class ApiService {
                                 cities.push(this.newCityObj);
                             }
                         );
+                        this.convertKelvinToCelcius(cities);
+
                         resolve(cities);
                     },
                     (err) => {
@@ -65,6 +67,16 @@ export class ApiService {
                 );
             }
         );
+    }
+
+    convertKelvinToCelcius(cities: CityTemp[]): CityTemp[] {
+        cities.forEach(
+            (item: CityTemp) => {
+                item.temperature = (item.temperature - 273).toFixed(2);
+            }
+        );
+
+        return cities;
     }
 
 

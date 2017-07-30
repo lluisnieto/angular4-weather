@@ -1,5 +1,5 @@
 <div class="container col-sm-9">
-    <h1>Current ºF temperatures:</h1>
+    <h1>Current ºC temperatures:</h1>
     <div class="jumbotron">
         <span *ngIf="this.ngRedux.getState().cities.length == 0" class="loading-animation">*</span>
         <div *ngIf="this.ngRedux.getState().cities.length > 0">
