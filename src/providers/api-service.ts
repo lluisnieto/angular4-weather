@@ -57,6 +57,7 @@ export class ApiService {
                                 cities.push(this.newCityObj);
                             }
                         );
+                        console.log(cities);
                         this.convertKelvinToCelcius(cities);
 
                         resolve(cities);
@@ -75,7 +76,6 @@ export class ApiService {
                 item.temperature = (item.temperature - 273).toFixed(2);
             }
         );
-
         return cities;
     }
 

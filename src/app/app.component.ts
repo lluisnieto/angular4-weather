@@ -31,15 +31,21 @@ export class AppComponent {
     }
 
     ngOnInit() {
+        this.temperatureLoad();
+
         setInterval(
             () => {
-                this.apiService.getTemperatureFromMultipleCites(this.cityNames).then(
-                    (val) => {
-                        this.ngRedux.dispatch({type: UPDATE, body: val});
-                    }
-                );
+                this.temperatureLoad();
             },
             180000
+        );
+    }
+
+    temperatureLoad(): void {
+        this.apiService.getTemperatureFromMultipleCites(this.cityNames).then(
+            (val) => {
+                this.ngRedux.dispatch({type: UPDATE, body: val});
+            }
         );
     }
 }
