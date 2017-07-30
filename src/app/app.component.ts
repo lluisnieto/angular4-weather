@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+
 import { ApiService } from '../providers/api-service';
+import { CityTemp } from "../models/citytemp-service";
+
 
 @Component({
     selector: 'app-root',
@@ -9,13 +12,32 @@ import { ApiService } from '../providers/api-service';
 
 export class AppComponent {
 
+    cities: CityTemp[] = [];
+    cityNames: string[] = [];
+    newCityObj: CityTemp;
+
     constructor(
-        public apiService: ApiService
+        public apiService: ApiService,
+
     ) {
-        this.apiService.getTempFromCityName('Barcelona').then(
-            (res) => {
-                console.log(res);
+        this.cityNames = [
+            'Santiago',
+            'Buenos Aires',
+            'Lima',
+            'Sao Paulo'
+        ];
+
+        this.cityNames.forEach(
+            (item) => {
+                this.apiService.getTempFromCityName(item).then(
+                    (res) => {
+                        this.newCityObj = new CityTemp;
+                        this.newCityObj.name = item;
+                        this.newCityObj.temperature = res;
+                        this.cities.push(this.newCityObj);
+                    }
+                );
             }
-        );
+        )
     }
 }

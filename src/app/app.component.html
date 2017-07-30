@@ -1,3 +1,3 @@
 <h1>
-  {{title}}
+  <div class="alert alert-info" role="alert" *ngFor="let city of cities">{{ city.name }}: {{ city.temperature }}</div>
 </h1>
